@@ -1,2 +1,5 @@
 # Study_Web
-Youtube Channel '생활코딩'의 JAVA1
+Youtube Channel '생활코딩'
+
+- JAVA1
+- WEB1- HTML&Internet
