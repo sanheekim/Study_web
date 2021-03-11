@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<article>
+	</article>
+	<input type="button" value="fetch" onclick="
+	
+<!-- 		fetch('html').then(function(response){
+			response.text().then(function(text){
+				document.querySelector('article').innerHTML = text;
+			})
+		}) -->
+		function callbackme(){
+			console.log('response end');
+		}
+		fetch('html').then(callbackme);
+	">
+
+</body>
+</html>
