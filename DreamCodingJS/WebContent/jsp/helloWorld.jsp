@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="js/helloworld.js"></script>
+<script src="../js/helloworld.js"></script>
 </head>
 <body>
 
