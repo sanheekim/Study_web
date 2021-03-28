@@ -4,7 +4,7 @@ console.log('1'+2);
 console.log('string literals : 1 + 2 = ${1 + 2}');
 
 // 2. Numeric operators
-console.log(2**3); // exponentiation, 거듭제곱
+console.log(2*3); // *는 곱하기고, **는 exponentiation 거듭제곱인데 **라고 하면 오류 나서 *만 써둠.
 
 // 3. Increment and decrement operators
 let counter = 2;
@@ -52,6 +52,8 @@ console.log(sh1 === sh3); // true.
 // - use for multiple type checks in TS
 
 // 11. Loops : while, do-while, for
+// break : loop를 끝냄
+// continue : loop를 끝내고 다음 걸로 넘어감
 
 
 
