@@ -1,4 +1,4 @@
-/* Function
+/* 1. Function
 - fundamental building block in the program
 - sub-program can be used multiple times
 - performs a task or calculates a value
@@ -21,16 +21,6 @@ function log(message){
 }
 
 log('Hello@');
-
-// 1. Function expression
-const print = function (){ // function에 아무 이름이 없는 것 : anonymous function
-	console.log('print');
-}
-print();
-const printAgain = print;
-printAgain();
-const sumAgain = sum;
-console.log(sumAgain(1, 3));
 
 /* 2. Parameters
 premitive parameters: passed by value.
@@ -106,3 +96,55 @@ function upgradeUser2(user){
 	}
 	// long upgrade logic..
 }
+
+
+
+// 1-1. Function expression : 할당된 다음부터 호출 가능함.
+const print = function (){ // function에 아무 이름이 없는 것 : anonymous function
+	console.log('print');
+}
+print();
+// 1-2. Function decoration : hoist가 가능함. 함수가 선언되기 이전에도 호출이 가능함. (이전 버전 var 처럼!)
+const printAgain = print;
+printAgain();
+const sumAgain = sum;
+console.log(sumAgain(1, 3));
+
+// 2. Callback function using function expression
+function randomQuiz(answer, printYes, printNo) {
+	if (answer === 'love you') {
+		printYes();
+	} else {
+		printNo();
+	}
+	}
+	
+const printYes = function (){
+	console.log('yes!');
+}
+
+const printNo = function print(){
+	console.log('no!');
+	print(); // 함수 안에서 함수 자신을 호출하는 것 : recursions, 계속 하면 프로그램이 죽으므로 하면 안 됨
+}
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
+
+// 3. Arrow Function : 함수를 간결하게 만들어줌.
+// always anonymous
+const simplePrint = function() {
+	console.log('simplePrint!')
+};
+
+const simplePrint = () => console.log('simplePrint!')
+const add = (a, b) => a + b;
+const simpleMultiply = (a, b) => {
+	// do something more
+	return a * b;
+};
+
+// IIFE : Immediately Invoked Function Expression
+// 선언함과 동시에 바로 호출. 최근 JS에서는 잘 사용하지 않음.
+(function hello() {
+	console.log('IIFE');
+})();
