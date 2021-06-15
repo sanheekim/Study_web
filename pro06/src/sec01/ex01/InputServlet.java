@@ -1,4 +1,4 @@
-package pro06.sec01.ex01;
+package sec01.ex01;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
