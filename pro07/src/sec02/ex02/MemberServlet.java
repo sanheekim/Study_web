@@ -51,7 +51,7 @@ public class MemberServlet extends HttpServlet {
 			dao.addMember(vo);
 		} else if (command != null & command.equals("delMember")) {
 			String id = request.getParameter("id");
-			//dao.delMember(id);
+			dao.delMember(id);
 		}
 		List<MemberVO> list = dao.listMembers();
 		out.print("<html><body>");
