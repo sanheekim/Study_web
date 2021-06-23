@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TestServlet3
  */
 /*@WebServlet("*.do")*/ // 확장자만 일치하는 패턴
-@WebServlet("/*") // 모든 요청 URL 패턴
+/*@WebServlet("/*")*/ // 모든 요청 URL 패턴
 public class TestServlet3 extends HttpServlet {
 
 	/**

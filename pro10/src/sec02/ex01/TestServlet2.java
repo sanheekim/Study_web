@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TestServlet2
  */
-@WebServlet("/first/*") // 디렉터리 이름만 일치하는 URL 패턴
+//@WebServlet("/first/*") // 디렉터리 이름만 일치하는 URL 패턴
 public class TestServlet2 extends HttpServlet {
 
 	/**
