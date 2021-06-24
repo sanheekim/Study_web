@@ -1,8 +1,7 @@
-package sec03.ex01;
+package sec01.ex01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,23 +13,20 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SessionTest
  */
-//@WebServlet("/sess")
+@WebServlet("/sess")
 public class SessionTest extends HttpServlet {
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+		PrintWriter pw = response.getWriter();
 		HttpSession session = request.getSession();
-		out.println("세션 아이디: "+session.getId()+"<br>");
-		out.println("최초 세션 생성 시각: "+new Date(session.getCreationTime())+"<br>");
-		out.println("최근 세션 접근 시각: "+new Date(session.getLastAccessedTime())+"<br>");
-		out.println("세션 유효 시간: "+session.getMaxInactiveInterval()+"<br>");
-		if(session.isNew()) {
-			out.print("새 세션이 만들어졌습니다.");
-		}
+		session.setAttribute("name", "이순신");
+		pw.println("<html><body>");
+		pw.println("<h1>세션에 이름을 바인딩합니다.</h1>");
+		pw.println("<a href='/pro12/test01/session1.jsp'>첫 번째 페이지로 이동하기 </a>");
+		pw.println("</body></html>");
 	}
-
 }
