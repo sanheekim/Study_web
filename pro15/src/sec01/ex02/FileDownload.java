@@ -1,7 +1,9 @@
 package sec01.ex02;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 /**
  * Servlet implementation class uploadForm
  */
-//@WebServlet("/upload.do")
+@WebServlet("/download.do")
 public class FileDownload extends HttpServlet {
 
 	/**
@@ -36,36 +38,24 @@ public class FileDownload extends HttpServlet {
 	
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String encoding = "utf-8";
-		File currentDirPath = new File("C:\\KHDev\\Workspace_Web_bymyself\\file_repo");
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		factory.setRepository(currentDirPath);
-		factory.setSizeThreshold(1024*1024);
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		try {
-			List items = upload.parseRequest(request);
-			for (int i = 0; i < items.size(); i++) {
-				FileItem fileItem = (FileItem) items.get(i);
-				if (fileItem.isFormField()) {
-					System.out.println(fileItem.getFieldName()+"="+fileItem.getString(encoding));
-				} else {
-					System.out.println("매개변수이름:"+fileItem.getFieldName());
-					System.out.println("파일이름:"+fileItem.getName());
-					System.out.println("파일크기:"+fileItem.getSize()+"bytes");
-					if (fileItem.getSize() > 0) {
-						int idx = fileItem.getName().lastIndexOf("\\");
-						if (idx == -1) {
-							idx = fileItem.getName().lastIndexOf("/");
-						}
-						String fileName = fileItem.getName().substring(idx+1);
-						File uploadFile = new File(currentDirPath + "\\" + fileName);
-						fileItem.write(uploadFile);
-					}
-				}
-			}
-		} catch(Exception e) {
-			e.printStackTrace();
+		response.setContentType("text/html; charset=utf-8");
+		String file_repo="C:\\KHDev\\Workspace_Web_bymyself\\file_repo";
+		String fileName = (String)request.getParameter("fileName");
+		System.out.println("fileName="+fileName);
+		OutputStream out = response.getOutputStream();
+		String downFile=file_repo+"\\"+fileName;
+		File f = new File(downFile);
+		response.setHeader("Cache-Control", "no-cache");
+		response.addHeader("Content-disposition", "attachment; fileName="+fileName);
+		FileInputStream in = new FileInputStream(f);
+		byte[] buffer = new byte[1024*8];
+		while(true) {
+			int count = in.read(buffer);
+			if (count== -1)
+				break;
+			out.write(buffer,0,count);
 		}
+		in.close();
+		out.close();
 	}
-
 }

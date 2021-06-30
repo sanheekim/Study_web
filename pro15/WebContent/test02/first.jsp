@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form method="post" action="result.jsp">
+		<input type=hidden name="param1" value="IMG_0549.JPG" /><br>
+		<input type=hidden name="param2" value="IMG_0550.JPG" /><br>
+		<input type="submit" value="이미지 다운로드">
+	</form>
 </body>
 </html>
