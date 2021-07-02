@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<jsp:useBean id="m" class="sec02.ex01.MemberBean" />
+<jsp:useBean id="m" class="sec02.ex01.MemberServlet" />
 <jsp:setProperty name="m" property="*" />
 <%
 	MemberDAO memDAO = new MemberDAO();
