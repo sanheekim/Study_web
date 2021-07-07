@@ -44,7 +44,7 @@
 			<c:when test="${!empty articlesList }">
 				<c:forEach var="article" items="${articlesList }" varStatus="articleNum">
 					<tr align="center">
-						<td width="5%">${ articleNumm.count }</td>
+						<td width="5%">${ articleNum.count }</td>
 						<td width="10%">${ article.id }</td>
 						<td align='left' width="35%">
 						<span style="padding-right:30px"></span>
