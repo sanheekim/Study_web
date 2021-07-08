@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +24,14 @@ import org.apache.commons.io.FileUtils;
 /**
  * Servlet implementation class ajaxTest1
  */
-@WebServlet("/board/*")
+//@WebServlet("/board/*")
 public class BoardController extends HttpServlet {
 	
 	private static String ARTICLE_IMAGE_REPO = "C:\\KHDev\\Workspace_Web_bymyself\\board\\article_image";
 	BoardService boardService;
 	ArticleVO articleVO;
 	
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
 		boardService = new BoardService();
 		articleVO = new ArticleVO();
 	}
@@ -62,39 +63,43 @@ public class BoardController extends HttpServlet {
 			} else if (action.equals("/articleForm.do")) {
 				nextPage = "/board03/articleForm.jsp";
 			} else if (action.equals("/addArticle.do")) {
-				int articleNO = 0;
+				int articleNO=0;
 				Map<String, String> articleMap = upload(request, response);
 				String title = articleMap.get("title");
 				String content = articleMap.get("content");
 				String imageFileName = articleMap.get("imageFileName");
+				
 				articleVO.setParentNO(0);
 				articleVO.setId("hong");
 				articleVO.setTitle(title);
 				articleVO.setContent(content);
 				articleVO.setImageFileName(imageFileName);
-				articleNO = boardService.addArticle(articleVO);
-				
-				if (imageFileName != null && imageFileName.length() != 0) {
-					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
-					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+				articleNO= boardService.addArticle(articleVO);
+				if(imageFileName!=null && imageFileName.length()!=0) {
+				    File srcFile = new 	File(ARTICLE_IMAGE_REPO +"\\"+"temp"+"\\"+imageFileName);
+					File destDir = new File(ARTICLE_IMAGE_REPO +"\\"+articleNO);
 					destDir.mkdirs();
 					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					srcFile.delete();
 				}
 				PrintWriter pw = response.getWriter();
-				pw.print("<script>"+" alert('새 글을 추가했습니다.');"
-						+ " location.href='"
-						+ request.getContextPath()
-						+ "/board/listArticles.do';"+"</script>");
-				
+				pw.print("<script>" 
+				         +"  alert('새글을 추가했습니다.');" 
+						 +" location.href='"+request.getContextPath()+"/board/listArticles.do';"
+				         +"</script>");
+
 				return;
-			} else if (action.equals("viewArticle.do")) {
+			}else if(action.equals("/viewArticle.do")){
 				String articleNO = request.getParameter("articleNO");
-				articleVO = boardService.viewArticle(Integer.parseInt(articleNO));
-				request.setAttribute("article", articleVO);
+				articleVO=boardService.viewArticle(Integer.parseInt(articleNO));
+				request.setAttribute("article",articleVO);
 				nextPage = "/board03/viewArticle.jsp";
-			} else {
-				nextPage = "/board03/viewArticle.jsp";
+			
+			}else {
+				nextPage = "/board03/listArticles.jsp";
 			}
+
+
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 			dispatch.forward(request, response);
 		} catch (Exception e) {

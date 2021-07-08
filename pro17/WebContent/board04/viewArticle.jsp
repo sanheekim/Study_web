@@ -1,29 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    isELIgnored="false"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+    isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	request.setCharacterEncoding("UTF-8");
-%>
-<!DOCTYPE html>
-<html>
+  request.setCharacterEncoding("UTF-8");
+%> 
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <head>
-<meta charset="UTF-8">
-<title>글 상세보기</title>
-<style>
-	#tr_btn_modify{
-		display:none;
+   <meta charset="UTF-8">
+   <title>글보기</title>
+   <style>
+     #tr_btn_modify{
+       display:none;
+     }
+   </style>
+   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<c:choose>
+		<c:when test="${not empty article.imageFileName && article.imageFileName!='null' }">
+		<script type="text/javascript" >
+		function fn_enable(obj){
+		document.getElementById("i_title").disabled=false;
+		document.getElementById("i_content").disabled=false;
+		document.getElementById("i_imageFileName").disabled=false;
+		document.getElementById("tr_btn_modify").style.display="block";
+		document.getElementById("tr_btn").style.display="none";
+		}
+		</script> 
+		</c:when>
+		<c:otherwise>
+		<script type="text/javascript" >
+		function fn_enable(obj){
+		document.getElementById("i_title").disabled=false;
+		document.getElementById("i_content").disabled=false;
+		document.getElementById("tr_btn_modify").style.display="block";
+		document.getElementById("tr_btn").style.display="none";
+		}
+		</script>
+		</c:otherwise>
+	</c:choose>
+
+   <script type="text/javascript" >
+	function backToList(obj){
+     obj.action="${contextPath}/board/listArticles.do";
+     obj.submit();
 	}
-</style>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
-<script type="text/javascript">
-     function backToList(obj){
-    obj.action="${contextPath}/board/listArticles.do";
-    obj.submit();
-  }
-  </script>
+	function fn_modify_article(obj){
+	  obj.action="${contextPath}/board/modArticle.do";
+	  obj.submit();
+	}
+ </script>
 </head>
 <body>
 	<form name="frmArticle" method="post" enctype="multipart/form-data">
@@ -66,7 +92,7 @@
 			</tr>
 			<tr id="tr_btn_modify">
 				<td colspan="2"   align="center">
-			       <input type=button value="수정하기"   onClick="fn_modify_article(frmArticle)"  >
+			       <input type=button value="수정 반영하기"   onClick="fn_modify_article(frmArticle)"  >
 		           <input type=button value="취소"  onClick="backToList(frmArticle)">
 				</td>   
 			</tr>

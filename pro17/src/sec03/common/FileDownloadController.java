@@ -21,13 +21,6 @@ import sec03.brd04.BoardService;
 public class FileDownloadController extends HttpServlet {
 	
 	private static String ARTICLE_IMAGE_REPO = "C:\\KHDev\\Workspace_Web_bymyself\\board\\article_image";
-	BoardService boardService;
-	ArticleVO articleVO;
-	
-	public void init() throws ServletException {
-		boardService = new BoardService();
-		articleVO = new ArticleVO();
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doHandle(request, response);
