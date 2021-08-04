@@ -52,4 +52,34 @@
 		 select pwd from t_member where id = 'hong'
 		]]>
 	</select>
+	
+	<insert id="insertMember" parameterType="memberVO">
+		<![CDATA[
+			insert into t_member(id, pwd, name, email)
+			values(#{id}, #{pwd}, #{name}, #{email})
+		]]>
+	</insert>
+	
+	<insert id="insertMember2" parameterType="java.util.HashMap">
+		<![CDATA[
+			insert into t_member(id, pwd, name, email)
+			values(#{id}, #{pwd}, #{name}, #{email})
+		]]>
+	</insert>
+	
+	
+	<update id="updateMember" parameterType="memberVO">
+		<![CDATA[
+			update t_member
+			set pwd=#{pwd}, name=#{name}, email=#{email}
+			where id=#{id}
+		]]>
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		<![CDATA[
+			delete from t_member
+			where id=#{id}
+		]]>
+	</delete>
 </mapper>
