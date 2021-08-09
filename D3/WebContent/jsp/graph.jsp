@@ -10,10 +10,14 @@
 <head>
 <meta charset="UTF-8">
 <title>D3 Graph Practice</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/bumbeishvili/d3-tip-for-v6@4/d3-tip.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bumbeishvili/d3-tip-for-v6@4/d3-tip.min.css">
 <script type="text/javascript">
-/***** 하프 도넛 차트 *****/
+$(document).ready(function() {
 
+/***** 하프 도넛 차트 *****/
 var w1 = 300, h1 = 300;
 var graphData1 = [56, 44];
 
@@ -24,7 +28,7 @@ var svg = d3.select(".graph01")
 			.attr("height",h1);
 			
 var group1 = svg.append("g")
-				.attr("transform","translate("+w1/2","+h1/2+")");
+				.attr("transform","translate("+w1/2+","+h1/2+")");
 				
 var radius = Math.min(w1, h1) /2;
 
@@ -80,7 +84,7 @@ var svg = d3.select(".graph02")
 // 원 그리기, g=group
 // svg 태그 밑에 <g ransform="translate(150,150)"> 생성
 var group2 = svg.append("g")
-				.attr("transform","translate("+w2/2","+h2/2+")");
+				.attr("transform","translate("+w2/2+","+h2/2+")");
 				
 // arc : 호
 var arc2 = d3.svg.arc()
@@ -126,11 +130,12 @@ arcs2.append("text")
 // 검은색 도넛 차트 생성
 // "fill": 색상 추가
 arcs2.append("path")
-	.attr("d", arc)
+	.attr("d", arc2)
 	.attr("fill",function(d){
 		return colorData2(d.data);
 	});
-
+	
+});
 </script>
 <style>
 	.arc1 text {
