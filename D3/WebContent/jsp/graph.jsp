@@ -125,7 +125,7 @@ arcs2.append("text")
 	.attr("text-anchor", "middle")
 	.text(function(d){
 		return "도넛차트";
-	});
+	}); 
 	
 // 검은색 도넛 차트 생성
 // "fill": 색상 추가

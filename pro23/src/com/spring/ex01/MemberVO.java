@@ -52,4 +52,13 @@ public class MemberVO {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
+
+	public MemberVO(String id, String pwd, String name, String email) {
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.email = email;
+	}
+	
+	
 }

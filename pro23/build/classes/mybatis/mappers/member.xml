@@ -82,4 +82,69 @@
 			where id=#{id}
 		]]>
 	</delete>
+	
+	<sql id="a">
+		<![CDATA[
+			select * from t_member
+		]]>
+	</sql>
+	
+	<select id="searchMember" parameterType="memberVO" resultMap="memResult">
+		<include refid="a" />
+		<![CDATA[
+			select * from t_member
+		]]>
+		<where>
+			<if test="name != '' and name != null">
+				name = #{name}
+			</if>
+			<if test="email != '' and email != null">
+				and email=#{email}
+			</if>
+		</where>
+		order by joinDate desc
+	</select>
+	
+	<!-- <select id="searchMember" parameterType="memberVO" resultMap="memResult">
+		<![CDATA[
+			select * from t_member
+		]]>
+		<where>
+			<choose>
+				<when test="name != '' and name != null and email != '' and email != null">
+					name=#{name} and email=#{email}
+				</when>
+				<when test="name != '' and name != null">
+					name=#{name}
+				</when>
+				<when test="email != '' and email != null">
+					email=#{email}
+				</when>
+			</choose>
+		</where>
+		order by joinDate desc
+	</select> -->
+	
+	<select id="foreachSelect" resultMap="memResult" parameterType="java.util.Map">
+      <include refid="a" />
+      <![CDATA[
+        select * from t_member 
+      ]]>
+      where name in
+      <foreach item="item" collection="list" open="(" separator="," close=")" >
+         #{item}
+      </foreach>
+      order by joinDate desc
+   </select>
+   
+	<insert id="foreachInsert"  parameterType="java.util.Map">
+      <foreach item="item"  collection="list"   open="INSERT ALL" separator=" " close="SELECT * FROM DUAL" >
+          INTO  t_member(id, pwd, name, email)
+          VALUES  (#{item.id},
+                    #{item.pwd},
+                    #{item.name},
+                    #{item.email})
+      </foreach>
+	</insert>
+	
 </mapper>
