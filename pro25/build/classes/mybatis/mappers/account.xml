@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="mapper.account">
+	<update id="updateBalance1">
+		<![CDATA[
+			update cust_account
+			set balance=balance-500000
+			where accountNo = '70-490-930'
+		]]>
+	</update>
+	<update id="updateBalance2">
+		<![CDATA[
+			update cust_account
+			set balance=balance+500000
+			where accountNo = '70-490-911'
+		]]>
+	</update>
+</mapper>

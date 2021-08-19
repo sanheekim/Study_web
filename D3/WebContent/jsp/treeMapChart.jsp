@@ -31,7 +31,7 @@ $(document).ready(function() {
 	      marker: {"line": {"width": 2}},
 	      pathbar: {"visible": false}
 	    },{
-	      type: "treemap",
+	       type: "treemap",
 	      branchvalues: "total",
 	      labels: labels,
 	      parents: parents,
