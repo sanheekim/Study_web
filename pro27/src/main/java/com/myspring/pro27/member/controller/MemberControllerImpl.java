@@ -25,6 +25,7 @@ import com.myspring.pro27.member.vo.MemberVO;
 
 @Controller("memberController")
 //@EnableAspectJAutoProxy
+@RequestMapping("/member")
 public class MemberControllerImpl   implements MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
 	@Autowired
@@ -38,8 +39,8 @@ public class MemberControllerImpl   implements MemberController {
 		String viewName = getViewName(request);
 //		String viewName = (String)request.getAttribute("viewName");
 		//System.out.println("viewName: " +viewName);
-		logger.info("viewName: "+ viewName);
-		logger.debug("viewName: "+ viewName);
+		logger.info("info 레벨 : viewName = "+ viewName);
+		logger.debug("debug 레벨 : viewName = "+ viewName);
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", membersList);
