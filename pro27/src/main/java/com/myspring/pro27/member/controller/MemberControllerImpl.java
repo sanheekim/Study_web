@@ -36,8 +36,8 @@ public class MemberControllerImpl   implements MemberController {
 	@Override
 	@RequestMapping(value="/member/listMembers.do" ,method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
-//		String viewName = (String)request.getAttribute("viewName");
+		//String viewName = getViewName(request);
+		String viewName = (String)request.getAttribute("viewName");
 		//System.out.println("viewName: " +viewName);
 		logger.info("info 레벨 : viewName = "+ viewName);
 		logger.debug("debug 레벨 : viewName = "+ viewName);
@@ -111,7 +111,7 @@ public class MemberControllerImpl   implements MemberController {
 	private ModelAndView form(@RequestParam(value= "result", required=false) String result,
 						       HttpServletRequest request, 
 						       HttpServletResponse response) throws Exception {
-		//String viewName = getViewName(request);
+		// String viewName = getViewName(request);
 		String viewName = (String)request.getAttribute("viewName");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result",result);
