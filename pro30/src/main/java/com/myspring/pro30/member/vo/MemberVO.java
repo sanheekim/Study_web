@@ -1,4 +1,4 @@
-package com.myspring.pro30.common.member.vo;
+package com.myspring.pro30.member.vo;
 
 import java.sql.Date;
 

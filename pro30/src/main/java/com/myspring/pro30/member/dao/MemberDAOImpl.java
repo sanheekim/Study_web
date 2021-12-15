@@ -1,4 +1,4 @@
-package com.myspring.pro30.common.member.dao;
+package com.myspring.pro30.member.dao;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.myspring.pro27.member.vo.MemberVO;
+import com.myspring.pro30.member.vo.MemberVO;
+
 
 @Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {

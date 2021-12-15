@@ -1,10 +1,11 @@
-package com.myspring.pro30.common.member.dao;
+package com.myspring.pro30.member.dao;
 
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.myspring.pro27.member.vo.MemberVO;
+import com.myspring.pro30.member.vo.MemberVO;
+
 
 public interface MemberDAO {
 	 public List selectAllMemberList() throws DataAccessException;
