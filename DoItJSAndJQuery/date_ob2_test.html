@@ -1,0 +1,13 @@
+<script>
+// 현재 날짜부터 연말까지 얼마나 남았나?
+
+var today = new Date();
+var nowYear = today.getFullYear();
+
+var theDate = new Date(nowYear, 11, 31);
+var diffDate = theDate.getTime()-today.getTime(); // 남은 날 = 특정 날짜 - 현재 날짜(밀리초 단위)
+
+var result = Math.ceil(diffDate/(60*1000*60*24));
+document.write("연말 D-day: " + result + "일 남았습니다.");
+
+</script>
