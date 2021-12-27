@@ -1,0 +1,25 @@
+<script>
+    var t = "Hello Thank you good luck to you";
+    document.write(t.charAt(16)); // g
+    document.write(t.indexOf("you")); // 12
+    document.write(t.indexOf("you",16)); // 29
+    document.write(t.lastIndexOf("you")); // 29
+    document.write(t.lastIndexOf("you",25)); // 12
+    document.write(t.match("luck")); // luck
+    document.write(t.search("you")); // 12
+    document.write(t.substr(21,4)); // luck
+    document.write(t.substring(6,12)); // Thank
+    document.write(t.repace("you","me")); // Hello Thank me good luck to you
+    document.write(t.toLowerCase());
+    document.write(t.toUpperCase());
+    document.write(t.length); // 32
+
+    var s = t.split(" ");
+    document.write(s[0]); // Hello
+    document.write(s[4]); // luck
+
+    var str = "A";
+    var t = str.charCodeAto(0);
+    document.write(t); // 65
+    document.write(String.fromCharCode(65)); // A
+</script>
