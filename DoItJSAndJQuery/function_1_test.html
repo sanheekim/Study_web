@@ -1,0 +1,18 @@
+<script>
+    var count = 0;
+    myFnc();
+    
+    function myFnc() {
+        count++;
+        document.write("hello"+count);
+    }
+
+    myFnc();
+
+    var theFnc = function(){
+        count++;
+        document.write("bye"+count);
+
+        theFnc();
+    }
+</script>
