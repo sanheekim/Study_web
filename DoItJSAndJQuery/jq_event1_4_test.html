@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $(document).ready(function(){
+                var h1 = $(".img1").height();
+                console.log("ready:",h1);//0
+            })
+
+            $(window).load(function(){
+                var h2 = $(".img1").height();
+                console.log("load:",h2); //300
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>
+        <img src="http://place-hold.it/300x300" class="img1">
+    </p>
+</body>
+</html>
