@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $(document).on("mousemove",function(e){
+                $(".posX").text(e.pageX);
+                $(".posY").text(e.pageY);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>mousemove</h1>
+    <p>X:<span class="posX">0</span>px</p>
+    <p>X:<span class="posY">0</span>px</p>
+</body>
+</html>
