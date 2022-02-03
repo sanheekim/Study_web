@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $(".btn_1").on("mouseover",function(){
+                alert("HELLO!");
+            });
+            $(document).on("mouseover",".btn_2",function(){
+                alert("WELCOME!");
+            });
+            
+            var btn_2 = $("<p><button class=\"btn_2\">버튼2</button></p>");
+            $("#wrap").append(btn_2);
+
+            $(".del_1").on("click", function(){
+                $(".btn_1").off("mouseover");
+            })
+            $(".del_2").on("click",function(){
+                $(document).off("mouseover",".btn_2");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p><buton class="btn_1">버튼1</buton></p>
+    </div>
+    <p>
+        <button class="del_1">버튼 1 이벤트 해제</button>
+        <button class="del_2">버튼 2 이벤트 해제</button>
+    </p>
+</body>
+</html>
