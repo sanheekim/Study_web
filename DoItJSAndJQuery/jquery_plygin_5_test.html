@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+        $.fn.open = function(eventType, message){
+            var ts = $(this);
+            $.each(ts, function(i,o){
+                $(o).on(eventType,function(){
+                    alert(message);
+                });
+            });
+        }
+        $(".btn1").open("mouseover","welcome!");
+        $(".btn2").open("click","hello!");
+        });
+    </script>
+</head>
+<body>
+    <p><button class="btn1">버튼1</button></p>
+    <p><button class="btn2">버튼2</button></p>
+    <p><button class="btn3">버튼3</button></p>
+</body>
+</html>
