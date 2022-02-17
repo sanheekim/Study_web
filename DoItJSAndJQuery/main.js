@@ -15,7 +15,7 @@ $(function(){
             $("#notice-tab-wrap h4 a").removeClass("on");
             $ts.addClass("on");
             $("#notice-tab-wrap > div:visible").hide();
-            $next.sho2();
+            $next.show();
         }
     }
 });
