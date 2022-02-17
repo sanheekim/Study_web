@@ -6,6 +6,13 @@ $(function(){
         autoControls:true,
         autoControlsCombine:true
     });
+
+    $('.grid').isotope({
+        //options
+        itemSelector:'.grid-item',
+        layoutMode:'fitRows'
+    });
+
     $("notice-tab-wrap h4 a").on("click",tabmenu);
     function tabmenu(e){
         e.preventDefault();
