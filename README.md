@@ -21,3 +21,8 @@
 
 
 ### Book 'Do it! 자바스크립트 + 제이쿼리 입문'
+- http://www.easyspub.co.kr/20_Menu/BookView/253/PUB
+
+
+
+### inflearn '자바 프로그래밍 입문 강좌 (renew ver.)'
