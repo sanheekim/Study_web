@@ -28,6 +28,23 @@ public class MainClass {
 		bVar = (byte)iVar;
 		System.out.println(bVar); //64 => 명시적 형변환은 데이터가 누슬될 수 있음. 
 	
+		System.out.println("Good\tMorning");
+		System.out.println("Good\nMorning");
+		System.out.println("Good\'Morning");
+		System.out.println("Good\"Morning");
+		System.out.println("Good\\Morning");
+		
+		// 서식문자
+		System.out.printf("오늘의 기온은 %d도 입니다.\n", 10);
+		// %d = 10진수
+		// %o = 8진수
+		// %x = 16진수
+		// %c = 문자
+		// %s = 문자열
+		// %f = 실수
+		
+		// 대입 연산자 : '오른쪽'의 결과를 '왼쪽'에 대입(할당) 함
+		
 	}
 
 }
