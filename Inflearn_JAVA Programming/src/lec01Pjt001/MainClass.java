@@ -1,5 +1,7 @@
 package lec01Pjt001;
 
+import java.util.Scanner;
+
 public class MainClass {
 	
 	public static void main(String[] args) {
@@ -49,15 +51,66 @@ public class MainClass {
 		
 		// 배열 선언 후 초기화
 		int[] arr1 = new int[5];
-		arr[0] = 100;
-		arr[1] = 200;
-		arr[2] = 300;
-		arr[3] = 400;
-		arr[4] = 500;
+		arr1[0] = 100;
+		arr1[1] = 200;
+		arr1[2] = 300;
+		arr1[3] = 400;
+		arr1[4] = 500;
 		
 		// 배열 선언과 초기화를 동시에
 		int[] arr2 = {10, 20, 30, 40, 50};
 		
+		// 조건문 1
+		int num1 = 10;
+		int num2 = 20;
+		if (num1 < num2) {
+			System.out.println("num1는 num2보다 작다.");
+		} else if (num1 > num2) {
+			System.out.println("num1은 num2보다 크다.");
+		} else {
+			System.out.println("num1과 num2는 같다.");
+		}
+		
+		// 조건문 2
+		System.out.println("점수를 입력하세요. : ");
+		Scanner inputNum = new Scanner(System.in);
+		int score = inputNum.nextInt();
+		
+		switch (score){
+			case 100:
+			case 90:
+			System.out.println("수");
+			
+			case 80:
+			System.out.println("우");
+			break;
+				
+			case 70:
+			System.out.println("미");
+			break;
+			
+			default:
+			System.out.println("Try again!");
+			break;
+		}
+		inputNum.close();
+		
+		// 반복문 1
+		System.out.println("INPUT NUMBER : ");
+		Scanner scanner = new Scanner(System.in);
+		int inputNum2 = scanner.nextInt();
+		for (int i2 = 1; i < 10; i2++) {
+			System.out.printf("%d * %d = %d\n", inputNum2, i2, (inputNum2*i2));
+		}
+		
+		// 반복문 2
+		int i3 = 10;
+		do {
+			System.out.println("무조건 1번은 실행합니다.");
+			i++;
+		} while (i < 13); // 3번 실행됨.
+		
+
 	}
 
 }
