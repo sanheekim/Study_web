@@ -110,7 +110,23 @@ public class MainClass {
 			i++;
 		} while (i < 13); // 3번 실행됨.
 		
+		// 상속
+		RealChildClass child = new RealChildClass();
+		child.parentFun();
+		child.childFun();
+		// child.privateFun(); // private은 상속되지 않는다.
 
+		ParentClass[] pArr = new ParentClass[2];
+		
+		FirstChildClass fch = new FirstChildClass();
+		SecondChildClass sch = new SecondChildClass();
+		
+		pArr[0] = fch;
+		pArr[1] = sch;
+		
+		for (i=0; i < pArr.length;i++) {
+			pArr[i].makeJjajang();
+		}
 	}
 
 }
