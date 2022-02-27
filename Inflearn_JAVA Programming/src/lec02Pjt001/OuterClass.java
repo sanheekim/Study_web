@@ -1,4 +1,4 @@
-package lec20Pjt001;
+package lec02Pjt001;
 
 public class OuterClass {
 	

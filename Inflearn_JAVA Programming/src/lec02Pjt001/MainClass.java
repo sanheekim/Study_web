@@ -1,4 +1,4 @@
-package lec20Pjt001;
+package lec02Pjt001;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -27,6 +27,17 @@ public class MainClass {
 			};
 		}.method();
 		
+		// 인터페이스(interface) : 클래스와 다르게 객체를 생성할 수 없음. 클래스에서 구현해야 하는 작업 명세서.
+		interfaceA ia = new ImplementClass();
+		interfaceB ib = new ImplementClass();
+	
+		ia.funA();
+		ib.funB();
+		
+		// 추상클래스(Abstract Class) : 인터페이스와 비슷한 형태. 구체화되지 않은 멤버를 이용해서 만들어진 클래스.
+		AbstractClassEx ex = new ClassEx(10,"java");
+		ex.fun1();
+		ex.fun2();
 	}
 
 }
