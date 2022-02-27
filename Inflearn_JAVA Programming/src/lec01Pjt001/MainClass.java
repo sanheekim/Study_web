@@ -127,6 +127,7 @@ public class MainClass {
 		for (i=0; i < pArr.length;i++) {
 			pArr[i].makeJjajang();
 		}
+		
 	}
 
 }
