@@ -33,12 +33,16 @@ public class MemoryMemberRepository implements MemberRepository {
 		store.values().stream()
 			.filter(member -> member.getName().equals(name))
 			.findAny(); // 하나라도 찾는 것
-		
+		return Optional.ofNullable(store.get(name));
 	}
 	
 	@Override
 	public List<Member> findAll(){
 		return new ArrayList<>(store.values());
+	}
+	
+	public void clearStore() {
+		store.clear();
 	}
 	
 	

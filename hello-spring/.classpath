@@ -15,5 +15,38 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina-ssi.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina-storeconfig.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/ecj-4.15.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/jaspic-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-cs.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-de.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-ja.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-ko.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-pt-BR.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-ru.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-i18n-zh-CN.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-jdbc.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-jni.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-util.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-util-scan.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-websocket.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/websocket-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
