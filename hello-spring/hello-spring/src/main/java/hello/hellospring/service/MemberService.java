@@ -11,6 +11,10 @@ public class MemberService {
 	
 	private final MemberRepository memberRepository = new MemoryMemberRepository();
 	
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
+	
 	/**
 	 * 회원 가입
 	 * @param member

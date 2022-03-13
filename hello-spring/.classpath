@@ -48,5 +48,7 @@
 	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-util-scan.jar"/>
 	<classpathentry kind="lib" path="C:/Tomcat/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="C:/Tomcat/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/junit-4.13.2.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/assertj-core-3.21.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
