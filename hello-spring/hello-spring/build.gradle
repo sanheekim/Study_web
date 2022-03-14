@@ -21,3 +21,36 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+//언어
+apply plugin: 'java'
+apply plugin: 'war'
+
+//JDK 버전 설정
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//라이브러리 저장소
+repositories {
+    jcenter()
+}
+
+//인코딩
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+//의존성 ; 외부 라이브러리
+dependencies {
+	testCompile fileTree(dir: 'WebContent/WEB-INF/lib', include: ['*.jar'])
+	compile fileTree(dir: 'lib', include: ['*.jar'])
+	compile 'ch.qos.logback:logback-classic:1.2.2'
+}
+
+//프로젝트 폴더 이름
+//war 설정
+project.webAppDirName = 'WebContent'
+war {
+	archiveName = "${baseName}.${extension}"
+}
