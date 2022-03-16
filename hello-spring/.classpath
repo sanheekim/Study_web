@@ -50,5 +50,9 @@
 	<classpathentry kind="lib" path="C:/Tomcat/lib/websocket-api.jar"/>
 	<classpathentry kind="lib" path="C:/Tomcat/lib/junit-4.13.2.jar"/>
 	<classpathentry kind="lib" path="C:/Tomcat/lib/assertj-core-3.21.0.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/spring-beans-5.3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/spring-core-5.3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/spring-jcl-5.3.16.jar"/>
+	<classpathentry kind="lib" path="C:/Tomcat/lib/spring-web-5.3.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
