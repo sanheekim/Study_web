@@ -16,6 +16,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// 22.3.17 jdbc, h2 데이터베이스 관련 라이브러리 추가
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	runtimeOnly 'com.h2database:2'
 }
 
 tasks.named('test') {
@@ -54,3 +57,5 @@ project.webAppDirName = 'WebContent'
 war {
 	archiveName = "${baseName}.${extension}"
 }
+
+
