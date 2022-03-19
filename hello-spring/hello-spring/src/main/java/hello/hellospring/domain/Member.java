@@ -1,8 +1,12 @@
 package hello.hellospring.domain;
 
+@Entity
 public class Member {
 	
+	@Id @GeneratedValue(stratedgy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="username")
 	private String name;
 	
 	public Long getId() {
