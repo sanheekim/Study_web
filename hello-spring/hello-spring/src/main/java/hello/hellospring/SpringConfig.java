@@ -40,6 +40,11 @@ public class SpringConfig {
 		return new MemberService(memberRepository());
 	}
 	
+	@Bean
+	public TimeTraceAop TimeTraceAop() {
+		return new TimeTraceAop();
+	}
+	
 	/*
 	 * @Bean public MemberRepository memberRepository() { //return new
 	 * MemoryMemberRepository(); //return new JdbcMemberRepository(dataSource);
