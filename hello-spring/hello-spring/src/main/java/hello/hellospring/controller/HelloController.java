@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
 	 @GetMapping("hello") public String hello(Model model) {
-	 model.addAttribute(attributeName:"data",attributeValue:"hello!");
+	 model.addAttribute("data","hello!");
 	 return "hello";
 	 }
 	
 	// MVC
 	@GetMapping("hello-mvc")
 	public String helloMvc(@RequestParam("name") String name, Model model) {
-		model.addAttribute(attributeName:"name",name);
+		model.addAttribute("name",name);
 		return "hello-template";
 	}
 	

@@ -1,5 +1,12 @@
 package hello.hellospring.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.Entity;
+
 @Entity
 public class Member {
 	
