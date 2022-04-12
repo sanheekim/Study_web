@@ -10,7 +10,7 @@ import org.hibernate.annotations.Entity;
 @Entity
 public class Member {
 	
-	@Id @GeneratedValue(stratedgy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name="username")
