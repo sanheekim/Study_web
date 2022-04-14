@@ -1,0 +1,31 @@
+/******************************************************/
+
+
+2022.04.13.(wed)
+Spring - FileUpload 파일첨부 #1
+(https://www.youtube.com/watch?v=I0ChYxQVZJw)
+
+개념
+- multipart : 여러 개의 파일
+- enctype : 파일을 쪼개서 보냄.
+
+Settings
+- pom.xml
+- servlet-context.xml
+
+
+/******************************************************/
+
+
+2022.04.14.(tue)
+Spring - FileUpload 파일첨부 #2
+(https://www.youtube.com/watch?v=KLQaZ-7mWYU)
+
+Thumbnail Image (FileUtils.java)
+- MiME type이 이미지인 경우 정해진 크기로 썸네일 생성.
+- 썸네일 이미지 파일명에 크기 정보 추가.
+
+
+/******************************************************/
+
+
