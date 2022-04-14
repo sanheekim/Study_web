@@ -11,6 +11,9 @@
 - WEB2 JavaScript
 - WEB3 Ajax
 
+### Youtube Channel '시니어코딩'
+- Java Spring Framework FileUpload 파일첨부 #1~6, bonus video : https://www.youtube.com/watch?v=I0ChYxQVZJw
+
 ### Book '자바 웹을 다루는 기술'
 - https://github.com/gilbutITbook/006895
 
