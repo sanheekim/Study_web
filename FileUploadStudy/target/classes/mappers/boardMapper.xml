@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jade.swp.persistence.BoardMapper">
+
+	<insert id="create">
+		insert into Board(   title,    writer,    content )
+		           values( #{title}, #{writer}, #{content} )
+	</insert>
+	
+	<insert id="addAttach">
+        insert into Attach(  bno, fullname )
+                   values( last_insert_id(), #{fullname} )
+    </insert>
+    
+    <insert id="appendAttach">
+        insert into Attach(  bno,    fullname )
+                   values( #{bno}, #{fullname} )
+    </insert>
+	
+	<select id="getAttach" resultType="String">
+        select fullname from Attach
+         where bno = #{bno}
+    </select>
+    
+    <delete id="delAttach">
+        delete from Attach where fullname = #{fullname}
+    </delete>
+    
+    <delete id="deleteAllAttaches">
+        delete from Attach where bno = #{bno}
+    </delete>
+	
+	<select id="read" resultType="com.jade.swp.domain.Board">
+		select * from Board
+		 where bno = #{bno}
+	</select>
+	
+	<update id="update">
+		update Board set title = #{title},
+						 content = #{content}
+		 where bno = #{bno}
+	</update>
+	
+	<update id="updateReplycnt">
+        update Board set replycnt = replycnt + #{amt}
+         where bno = #{bno}
+    </update>
+    
+    <update id="plusViewcnt">
+        update Board set viewcnt = viewcnt + 1
+         where bno = #{bno}
+    </update>
+    
+	<delete id="delete">
+		delete from Board where bno = #{bno}
+	</delete>
+	
+	<select id="listAll" resultType="com.jade.swp.domain.Board">
+		select * from Board
+		 where bno > 0 order by bno desc, regdate desc
+	</select>
+	
+	<sql id="searchCondition">
+	     <if test="searchType != null">
+            <if test = "searchType == 't'.toString() ">
+               and title like concat('%', #{keyword},  '%')
+            </if>
+            <if test = "searchType == 'c'.toString() ">
+               and content like concat('%', #{keyword},  '%')
+            </if>
+            <if test = "searchType == 'w'.toString() ">
+               and writer like concat('%', #{keyword},  '%')
+            </if>
+            <if test = "searchType == 'tc'.toString() ">
+               and (
+                        title like concat('%', #{keyword},  '%')
+                     or content like concat('%', #{keyword},  '%') 
+                   )
+            </if>
+            <if test = "searchType == 'a'.toString() ">
+               and (
+                        title like concat('%', #{keyword},  '%')
+                     or content like concat('%', #{keyword},  '%')
+                     or writer like concat('%', #{keyword},  '%') 
+                   )
+            </if>
+         </if>
+	</sql>
+	<select id="listPage" resultType="Board">
+        select * from Board
+         where bno > 0
+         order by bno desc, regdate desc limit #{page}, 10
+    </select>
+    
+    <select id="listCriteria" resultType="Board">
+        select * from Board
+         where bno > 0
+         
+         <include refid="searchCondition"/>
+         
+         order by bno desc, regdate desc
+         limit #{pageStart}, #{perPageNum}
+    </select>
+	
+	<select id="getMaxbno" resultType="Integer">
+		select max(bno) from Board
+	</select>
+	
+	<select id="countPaging" resultType="Integer">
+        select count(bno) cnt from Board
+         where bno > 0
+         <include refid="searchCondition"/>
+    </select>
+	
+</mapper>
