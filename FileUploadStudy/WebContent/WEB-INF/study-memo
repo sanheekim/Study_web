@@ -17,7 +17,7 @@ Settings
 /******************************************************/
 
 
-2022.04.14.(tue)
+2022.04.14.(thur)
 Spring - FileUpload 파일첨부 #2
 (https://www.youtube.com/watch?v=KLQaZ-7mWYU)
 
@@ -29,7 +29,7 @@ Thumbnail Image (FileUtils.java)
 /******************************************************/
 
 
-2022.04.14.(tue)
+2022.04.14.(thur)
 Spring - FileUpload 파일첨부 #3
 (https://www.youtube.com/watch?v=WqesngcwRno)
 
@@ -37,7 +37,7 @@ Spring - FileUpload 파일첨부 #3
 /******************************************************/
 
 
-2022.04.14.(tue)
+2022.04.14.(thur)
 Spring - FileUpload 파일첨부 #4 - 게시판에 파일첨부 기능 추가(1/3)
 (https://www.youtube.com/watch?v=BHEN41aVvoU)
 - 게시글 작성 시  파일 첨부하기
@@ -56,4 +56,30 @@ WorkList (쓰기, 읽기)
 
 
 /******************************************************/
+
+
+2022.04.15.(fri)
+Spring - FileUpload 파일첨부 #5 - 게시판에 파일첨부 기능 추가(2/3)
+(https://www.youtube.com/watch?v=IA6IVNmLcco)
+
+WorkList (글쓰기)
+1. Attach table 생성
+2. BoardValue Object 수정 (String[] files 추가)
+3. 쓰기 > BoardService.regist() 수정 (BoardDAO첨부파일 저장 호출)
+4. 쓰기 > BoardDAO.addAttach() 추가 및 boardMapper.xml에 addAttach 추가
+5. 쓰기 > register.jsp 수정 (ajax.js, upload.js, hbs.js, D&D 처리)
+---------> 여기까지는 4강에서 완료함
+6. 여러파일 한 번에 업로드
+7. 글등록 submit 전 업로드 파일 삭제
+- UploadController.deleteFile()수정
+- uploadList의 해당 li 태그 삭제
+8. 글등록 submit
+
+
+/******************************************************/
+
+
+
+/******************************************************/
+
 

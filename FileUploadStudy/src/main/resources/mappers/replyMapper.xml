@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jade.swp.persistence.ReplyMapper">
+
+	<insert id="create">
+		insert into Reply(   bno,    replyer,    replytext )
+		           values( #{bno}, #{replyer}, #{replytext} )
+	</insert>
+	
+	<update id="update">
+		update Reply set replytext = #{replytext}
+		 where rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		delete from Reply where rno = #{rno}
+	</delete>
+	
+	<delete id="deleteAll">
+        delete from Reply where bno = #{bno}
+    </delete>
+    
+	
+	<select id="list" resultType="com.jade.swp.domain.Reply">
+		select * from Reply
+		 where bno = #{bno} order by rno desc
+	</select>
+	
+	<select id="read" resultType="com.jade.swp.domain.Reply">
+        select * from Reply
+         where rno = #{rno}
+    </select>
+	
+	<select id="listPage" resultType="com.jade.swp.domain.Reply">
+        select * from Reply
+         where bno = #{bno} order by rno desc limit #{criteria.pageStart}, #{criteria.perPageNum}
+    </select>
+    
+    <select id="count" resultType="Integer">
+        select count(*) from Reply where bno = #{bno}
+    </select>
+    
+    <select id="getBno" resultType="Integer">
+        select bno from Reply where rno = #{rno}
+    </select>
+	
+</mapper>
