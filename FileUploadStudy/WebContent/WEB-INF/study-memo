@@ -73,11 +73,38 @@ WorkList (글쓰기)
 7. 글등록 submit 전 업로드 파일 삭제
 - UploadController.deleteFile()수정
 - uploadList의 해당 li 태그 삭제
+- upfiles array 해당 인자 삭제
 8. 글등록 submit
+
+WorkList (글읽기)
+1. BoardController.getAttach() 추가
+2. BoardService.getAttach() 추가
+3. BoardDAO, boardMapper.xml에 getAttach 추가
+4. read.jsp에 첨부파일 목록 보이기
+
+※ @ResponseBody :
+- ajax로 통신함. 서버에서 클라이언트로 통신.
+- 스프링에서 비동기 처리를 하는 경우 @RequestBody(클라이언트에서 서버로 통신)와 함께 사용함.
 
 
 /******************************************************/
 
+
+2022.04.16.(sat)
+Spring - FileUpload 파일첨부 #6 - 게시판에 파일첨부 기능 추가(3/3)
+(https://www.youtube.com/watch?v=XQMHRLA-j7g)
+
+WorkList (글수정 및 삭제)
+1. 수정페이지(update.jsp) 수정
+- 파일 목록, Drop 영역, 삭제 버튼 나오도록!
+2. 파일 삭제 시 confirm창 띄우고, bno가 있으면 Attach table 함께 삭제
+- UploadController.deleteFile()에서 bno가 파라미터가 있다면,
+BoardService.removeAttach() -> BoardDAO.deleteAttach()
+3. 파일 추가 시 bno가 있으면 Attach table에도 insert
+- UploadController.uploadAjaxes()에서 bno 파라미터가 있다면,
+BoardService.appendAttach() -> BoardDAO.appendAttach()
+4. 게시글 삭제 시 모든 파일 지우기
+- BoardService.remove()에서 BoardDAO.deleteAllAttaches()
 
 
 /******************************************************/

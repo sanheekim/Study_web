@@ -1,0 +1,79 @@
+#modDiv {
+	border: 1px solid #333;
+    width: 200px;
+    height: 100px;
+    background-color: #bbb;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 2px 10px 0px 10px;
+    z-index: 1000;
+    display: none;
+}
+
+.fileDrop {
+	width: 80%;
+	height: 100px;
+	border: 1px dotted gray;
+	background-color: lightslategrey;
+	margin: auto;
+}
+
+.has-img img {
+	height: 100px !important;
+}
+
+.pageination {
+	list-style: none;
+}
+
+.pagination li {
+     display: inline;
+     margin: 0 10px;
+}
+
+.pagination li a.active {
+	font-weight: 700;
+    border: 1px solid #413cb8;
+    padding: 4px 8px;
+}
+
+/* ----------------------------------------------- space */
+.width300 {
+	width: 300px;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.ml10 {
+	margin-left: 10px;
+}
+
+.mb10 {
+    margin-botton: 10px;	
+}
+
+.mtb50 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+/* ------------------------------------------------ text  */
+.text-right {
+	text-align: right;
+}
+
+.fw7 {
+	font-weight: 700;
+}
+
+/* ------------------------------------------------ cursor  */
+.point {
+	cursor: pointer;
+}
