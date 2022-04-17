@@ -106,7 +106,25 @@ BoardService.appendAttach() -> BoardDAO.appendAttach()
 4. 게시글 삭제 시 모든 파일 지우기
 - BoardService.remove()에서 BoardDAO.deleteAllAttaches()
 
+※ deleteAll() : 글 삭제하면 글내용, 리플, 첨부파일 모두 삭제되도록 하는 메서드.
+
 
 /******************************************************/
 
 
+2022.04.17.(sun)
+Spring - 파일첨부 보너스영상 - 이미지파일 크롭하기 Crop Image
+(https://www.youtube.com/watch?v=jtNSY2475XQ)
+
+** FileUtils.java - String mamkeCrop 참고 (makeCrop의 오타인 듯.)
+1. 정사각형 만들기
+min(600,400) = 400
+W = (600-400)/2 = 100
+H = (400-400)/2 = 0
+(100,0) ~ 가로 400, 세로 400
+
+2. resize to 300 X 300
+-> 목 잘린 사진을 방지하기 위함.
+
+
+/******************************************************/
