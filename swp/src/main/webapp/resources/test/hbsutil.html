@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Handlebar Test 1</title>
+	<link href="../images/favicon.ico" rel="shortcut icon" type="image/png">
+</head>
+<body>
+<div>
+    <h5>user1</h5>
+    <script id="tmpl1" type="text/x-handlebars-template">
+        id: {{id}}, name: <strong>{{name}}</strong>
+	</script>
+	<hr />
+	<h5>user1</h5>
+	<script id="tmpl2" type="text/x-handlebars-template" class="text-center fw7">
+        {{id}}. {{name}}
+	</script>
+</div>
+
+
+
+<script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../handlebars-v4.0.12.js"></script>
+
+<script>
+let HbsTemplates = {};
+$('script[type="text/x-handlebars-template"]').each( (idx, hbs) => {
+    //console.log("hbs>>", hbs, $(hbs))
+    let $hbs = $(hbs),
+        id = $hbs.attr('id'),
+        html = $hbs.html();
+    
+    //console.debug("HBS22>>", $hbs);
+    HbsTemplates[id] = Handlebars.compile(html);
+});
+
+let renderHbs = function(hid, context, tagName) {
+	//console.debug("QQQQ>>", hid, HbsTemplates[hid], context)
+	if (!HbsTemplates || !HbsTemplates[hid]) throw new Error(`${hid} Template is not found!`);
+	
+	tagName = tagName || 'div';
+	let $hbs = $('#' + hid),
+	    css = $hbs.attr('class'),
+	    cssStr = css ? `class="${css}"` : "",
+	    html = HbsTemplates[hid](context);
+	
+	$hbs.replaceWith(`<${tagName} id="${hid}" ${cssStr}>${html}</${tagName}>`);
+};
+
+
+//let template = Handlebars.compile($('#tmpl1').html());
+
+let context = {id: 123, name: "홍길동"};
+//let html = template(context);
+//let html = Templates.tmpl1(context);
+renderHbs('tmpl1', context);
+renderHbs('tmpl2', context, "span");
+
+// ---------- request test
+const callList = (resolves, rejects) => {
+	console.log("QQQ::callList!")
+    const req = new XMLHttpRequest();
+    req.open('GET', "/replies/222/1");
+    req.onload = () => {
+    	console.log("Result>>", req.status, req.statusText);
+    	if (req.status === 200)
+    		resolves( JSON.parse(req.response) );
+    	else
+    		rejects(Error(req.statusText));
+    };
+    
+    req.onerror = err => {
+    	console.error("ERROR:", err);
+    	rejects(err);
+    };
+    
+    req.send();
+};
+
+const lst = page => new Promise( (resolves, rejects) => {
+    console.log("QQQ::callList!")
+    const req = new XMLHttpRequest();
+    req.open('GET', "/replies/222/" + page);
+    req.onload = () => {
+        console.log("Result>>", req.status, req.statusText);
+        if (req.status === 200)
+            resolves( JSON.parse(req.response) );
+        else
+            rejects(Error(req.statusText));
+    };
+    
+    req.onerror = err => {
+        console.error("ERROR:", err);
+        rejects(err);
+    };
+    
+    req.send();
+});
+
+lst(11).then( res => {
+	console.log("Final Result>>", res);
+}, err => {
+	console.error(err);
+})
+
+const readReply = rno => new Promise( (resolves, rejects) => {
+	sendAjax("/replies/" + rno, (isSuccess, res) => {
+        console.debug("READDDDDD>>", res);
+        assert.deepEqual(firstReply, resRead, "Reply Data OK!!");
+        
+        done();
+        readOk = true;
+    });
+});
+
+{
+    sendAjax("/replies/" + firstReply.rno, (isReadSuccess, resRead) => {
+        console.debug("READDDDDD>>", resRead);
+        assert.deepEqual(firstReply, resRead, "Reply Data OK!!");
+        
+        done();
+        readOk = true;
+    });
+};
+
+</script>
+
+<link rel="stylesheet" href="../style.css" />
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Handlebar Test 1</title>
+	<link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+<h2>Title</h2>
+User1
+<script id="tmpl1" type="text/x-handlebars-template" class="text-right abc">
+    <div>
+        id: {{id}}, name: {{name}}
+    </div>
+</script>
+<hr />
+User2: 
+<script id="tmpl2" type="text/x-handlebars-template">
+        {{id}}. <strong>{{name}}</strong>
+</script>
+
+<script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../handlebars-v4.0.12.js"></script>
+<script src="../hbs.js"></script>
+<script>
+let context = {id: 123, name: "홍길동"};
+
+const Templates = {},
+$htmls = $('script[type="text/x-handlebars-template"]');
+
+$htmls.each( (idx, h) => {
+	let tid = $(h).attr('id');
+	Templates[tid] = Handlebars.compile($(h).html());
+});
+
+let renderHbs = function(tid, jsonData, tag) {
+	tag = tag || 'div';
+	let $tmpl = $('#' + tid); // "#" + "tmpl2"
+	let html = Templates[tid](jsonData);
+	let cssClass = $tmpl.attr('class') || "";
+	$tmpl.replaceWith(`<${tag} class="${cssClass}">` + html + `</${tag}>`)
+};
+
+renderHbs("tmpl1", context);
+renderHbs("tmpl2", context, 'span');
+</script>
+</body>
+</html>
